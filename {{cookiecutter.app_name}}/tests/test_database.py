@@ -9,14 +9,13 @@ from flask_login import UserMixin
 
 
 class TestUser(UserMixin, PkModel):
-    """A user of the app."""
+    """Example model class."""
 
     __tablename__ = "testusers"
     username = Column(db.String(80), unique=True, nullable=False)
     email = Column(db.String(80), unique=True, nullable=False)
 
     def __init__(self, username, email):
-        """Create instance."""
         super().__init__(username=username, email=email)
 
 
@@ -24,7 +23,7 @@ class TestUser(UserMixin, PkModel):
 class TestCRUDMixin:
     """CRUDMixin tests."""
 
-    def test_check_password(self):
+    def test_create(self):
         """Test CRUD create."""
         user = TestUser.create(username="foo", email="foo@bar.com")
         assert TestUser.get_by_id(user.id).username == "foo"
