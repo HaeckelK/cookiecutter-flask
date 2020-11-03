@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """Database unit tests."""
 import pytest
-
 from flask_login import UserMixin
 
-from {{cookiecutter.app_name}}.database import PkModel, Column, db
+from {{cookiecutter.app_name}}.database import Column, PkModel, db
 
 
 class ExampleUserModel(UserMixin, PkModel):
